@@ -25,7 +25,12 @@ for dir in dirs:
     dst = os.path.join(homedir, dir)
     print('attempting to copy to {}'.format(dst))
     if os.path.exists(dst):
-        shutil.rmtree(dst)
+        confirm = input('Detected directory at {}, please confirm deletion (y/n): ')
+        if confirm.lower() == 'y':
+            shutil.rmtree(dst)
+        else:
+            print('Cannot continue with conflicting filepath.')
+            exit()
     elif os.path.islink(dst):
         os.remove(dst)
     os.symlink(os.path.join(dotfiles, dir), dst)

@@ -4,7 +4,10 @@ My dotfiles repo.
 
 ## Installation
 
-First, install [homebrew](https://brew.sh/). Most of the rest of the setup is predicated
-on having Homebrew installed.
+Just `git clone` and run
 
-Then, run `brew bundle install` to install brew packages.
+```bash
+bash ./install.sh
+```
+
+from within the repository.

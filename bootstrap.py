@@ -1,7 +1,7 @@
 #!/usr/bin/python
 from os import listdir, path, remove, symlink
 
-currdir = path.dirname(__file__) 
+currdir = path.dirname(path.abspath(__file__)) 
 dotfiles = path.join(currdir, 'dotfiles')
 
 files = [f for f in listdir(dotfiles) if path.isfile(path.join(dotfiles, f))]

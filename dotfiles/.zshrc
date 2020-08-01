@@ -70,6 +70,9 @@ ZSH_THEME="gallois"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# Disable compaudit chk, https://github.com/ohmyzsh/ohmyzsh/issues/6835
+ZSH_DISABLE_COMPFIX="true"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

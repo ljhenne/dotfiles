@@ -25,7 +25,7 @@ for dir in dirs:
     dst = os.path.join(homedir, dir)
     print('attempting to copy to {}'.format(dst))
     if os.path.exists(dst):
-        confirm = input('Detected directory at {}, please confirm deletion (y/n): ')
+        confirm = input('Detected directory at {}, please confirm deletion (y/n): '.format(dst))
         if confirm.lower() == 'y':
             shutil.rmtree(dst)
         else:

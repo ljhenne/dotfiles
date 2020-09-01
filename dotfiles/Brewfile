@@ -4,4 +4,9 @@ tap "homebrew/core"
 
 brew "python"
 
+cask "1password"
+cask "battle-net"
+cask "bettertouchtool"
+cask "firefox"
 cask "kitty"
+cask "moom"

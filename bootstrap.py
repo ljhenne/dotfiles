@@ -27,7 +27,10 @@ for dir in dirs:
     if os.path.exists(dst):
         confirm = input('Detected directory at {}, please confirm deletion (y/n): '.format(dst))
         if confirm.lower() == 'y':
-            shutil.rmtree(dst)
+            if os.path.islink(dst):
+                os.remove(dst)
+            else:
+                shutil.rmtree(dst)
         else:
             print('Cannot continue with conflicting filepath.')
             exit()

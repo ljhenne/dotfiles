@@ -22,7 +22,7 @@ fi
 #
 #
 ## Brew bundle, installs all homebrew binaries, depends on `Brewfile` copied in previous step
-brew bundle install
+brew bundle install --file ./dotfiles/Brewfile
 
 ## oh-my-zsh Installation
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

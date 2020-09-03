@@ -3,6 +3,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 
 brew "python"
+brew "mas"
 
 cask "1password"
 cask "battle-net"
@@ -10,3 +11,6 @@ cask "bettertouchtool"
 cask "firefox"
 cask "kitty"
 cask "moom"
+
+mas "Day One", id: 1055511498
+mas "Ulysses", id: 1225570693

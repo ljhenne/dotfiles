@@ -1,0 +1,101 @@
+{
+  "entries": {
+    "tap": {
+      "homebrew/bundle": {
+        "revision": "5ddb6cd9f6e7961f1ecd93a9d99abdabdc251bc9"
+      },
+      "homebrew/cask": {
+        "revision": "fc006c95d511950e0d8696f057f6b975b677cee4"
+      },
+      "homebrew/core": {
+        "revision": "b50391d67f3ba6fb34931c79e0db5925b89de935"
+      }
+    },
+    "brew": {
+      "python": null,
+      "mas": {
+        "version": "1.7.0",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/mas-1.7.0.catalina.bottle.tar.gz",
+              "sha256": "b985d100947063ee94961f7f1290f232786634b869d20d56bd553197cf91188b"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/mas-1.7.0.mojave.bottle.tar.gz",
+              "sha256": "c7005c34a3cf38d23f98e9cc238a0deae61f50ea5dfbcf51a34cc689a9db315e"
+            }
+          }
+        }
+      }
+    },
+    "cask": {
+      "1password": {
+        "version": "7.6",
+        "options": {
+          "full_name": "1password"
+        }
+      },
+      "battle-net": {
+        "version": "latest",
+        "options": {
+          "full_name": "battle-net"
+        }
+      },
+      "firefox": {
+        "version": "80.0",
+        "options": {
+          "full_name": "firefox"
+        }
+      },
+      "kitty": {
+        "version": "0.18.3",
+        "options": {
+          "full_name": "kitty"
+        }
+      },
+      "bettertouchtool": {
+        "version": "3.402-1633",
+        "options": {
+          "full_name": "bettertouchtool"
+        }
+      },
+      "moom": {
+        "version": "3.2.17",
+        "options": {
+          "full_name": "moom"
+        }
+      },
+      "discord": {
+        "version": "0.0.258",
+        "options": {
+          "full_name": "discord"
+        }
+      }
+    },
+    "mas": {
+      "Day One": {
+        "id": "1055511498",
+        "version": "5.1"
+      },
+      "Ulysses": {
+        "id": "1225570693",
+        "version": "20.2"
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "catalina": {
+        "HOMEBREW_VERSION": "2.4.16",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "b50391d67f3ba6fb34931c79e0db5925b89de935",
+        "CLT": "11.5.0.0.1.1588476445",
+        "Xcode": "11.5",
+        "macOS": "10.15.6"
+      }
+    }
+  }
+}

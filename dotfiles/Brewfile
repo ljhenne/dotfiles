@@ -4,6 +4,7 @@ tap "homebrew/core"
 
 brew "python"
 brew "mas"
+brew "node"
 
 cask "1password"
 cask "battle-net"
@@ -12,6 +13,9 @@ cask "discord"
 cask "firefox"
 cask "kitty"
 cask "moom"
+cask "jetbrains-toolbox"
+cask "spotify"
 
 mas "Day One", id: 1055511498
+mas "MONIT", id: 1014850245
 mas "Ulysses", id: 1225570693

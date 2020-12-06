@@ -2,30 +2,51 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "5ddb6cd9f6e7961f1ecd93a9d99abdabdc251bc9"
+        "revision": "b84d4569eafe799c7c46c6c12c63215cb8095b6d"
       },
       "homebrew/cask": {
-        "revision": "fc006c95d511950e0d8696f057f6b975b677cee4"
+        "revision": "b1182cf8f662f1e24a5bd388352fd2c56167a1a4"
       },
       "homebrew/core": {
-        "revision": "b50391d67f3ba6fb34931c79e0db5925b89de935"
+        "revision": "ab72dd1aba052ea550e8a2ef20a7716ccdf29e1f"
       }
     },
     "brew": {
       "python": null,
       "mas": {
-        "version": "1.7.0",
+        "version": "1.7.1",
         "bottle": {
           "cellar": ":any",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/mas-1.7.0.catalina.bottle.tar.gz",
-              "sha256": "b985d100947063ee94961f7f1290f232786634b869d20d56bd553197cf91188b"
+              "url": "https://homebrew.bintray.com/bottles/mas-1.7.1.catalina.bottle.tar.gz",
+              "sha256": "e6de2f98ebd21885a9827664fe1b7eea5516a7fd75d5b7383e3a9b088591a27f"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/mas-1.7.0.mojave.bottle.tar.gz",
-              "sha256": "c7005c34a3cf38d23f98e9cc238a0deae61f50ea5dfbcf51a34cc689a9db315e"
+              "url": "https://homebrew.bintray.com/bottles/mas-1.7.1.mojave.bottle.tar.gz",
+              "sha256": "8b6dc4e261ebdc8e2f93afe87da3db4d482eb3d8a0358ab19a0485d434550e77"
+            }
+          }
+        }
+      },
+      "monit": {
+        "version": "5.27.0",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/monit-5.27.0.catalina.bottle.tar.gz",
+              "sha256": "244bbb87c88f90a08e157cf9fb50e501d15369a1c79cf66badb766bdd8de6fbb"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/monit-5.27.0.mojave.bottle.tar.gz",
+              "sha256": "dfe692f5f8a4320956f237dd920d59a06801c8e89dfcca6aba01a2e2f9a0bbab"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/monit-5.27.0.high_sierra.bottle.tar.gz",
+              "sha256": "7548c14639efa1102971eaf6f1d61dd32e4a6384afe2cfb70e20333979aa7338"
             }
           }
         }
@@ -73,27 +94,34 @@
         "options": {
           "full_name": "discord"
         }
+      },
+      "spotify": {
+        "version": "latest",
+        "options": {
+          "full_name": "spotify"
+        }
       }
     },
     "mas": {
       "Day One": {
         "id": "1055511498",
-        "version": "5.1"
+        "version": "5.2"
       },
       "Ulysses": {
         "id": "1225570693",
         "version": "20.2"
-      }
+      },
+      "MONIT": null
     }
   },
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.16",
+        "HOMEBREW_VERSION": "2.5.0",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "b50391d67f3ba6fb34931c79e0db5925b89de935",
-        "CLT": "11.5.0.0.1.1588476445",
-        "Xcode": "11.5",
+        "Homebrew/homebrew-core": "ab72dd1aba052ea550e8a2ef20a7716ccdf29e1f",
+        "CLT": "12.0.0.0.1.1597368733",
+        "Xcode": "12.0",
         "macOS": "10.15.6"
       }
     }

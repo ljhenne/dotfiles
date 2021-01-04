@@ -1,7 +1,10 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "hashicorp/tap"
 
+brew "hashicorp/tap/terraform"
+brew "postgresql"
 brew "python"
 brew "mas"
 brew "node"

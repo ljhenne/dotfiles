@@ -101,3 +101,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/loganhennessy/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/loganhennessy/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/loganhennessy/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/loganhennessy/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

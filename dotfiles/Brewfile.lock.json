@@ -2,13 +2,16 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "b84d4569eafe799c7c46c6c12c63215cb8095b6d"
+        "revision": "34ecc54ff8170e920dc9fb0c6b122d0927bea1c0"
       },
       "homebrew/cask": {
-        "revision": "b1182cf8f662f1e24a5bd388352fd2c56167a1a4"
+        "revision": "e89f50d3f5308f6d8b70dec8b00db71c8c5797f7"
       },
       "homebrew/core": {
-        "revision": "ab72dd1aba052ea550e8a2ef20a7716ccdf29e1f"
+        "revision": "93aebb8c0e89d4dcafc12c4ecdad8369c47c0a59"
+      },
+      "hashicorp/tap": {
+        "revision": "9b064a889ea872ce463759976d13b30c0faa9473"
       }
     },
     "brew": {
@@ -19,6 +22,10 @@
           "cellar": ":any",
           "prefix": "/usr/local",
           "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/mas-1.7.1.big_sur.bottle.tar.gz",
+              "sha256": "432091a534d0a1f753fcf953fb1c20c10ef5762b7f8922cb378c3dcd36898d30"
+            },
             "catalina": {
               "url": "https://homebrew.bintray.com/bottles/mas-1.7.1.catalina.bottle.tar.gz",
               "sha256": "e6de2f98ebd21885a9827664fe1b7eea5516a7fd75d5b7383e3a9b088591a27f"
@@ -50,11 +57,62 @@
             }
           }
         }
+      },
+      "hashicorp/tap/terraform": null,
+      "postgresql": {
+        "version": "13.1",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/postgresql-13.1.big_sur.bottle.tar.gz",
+              "sha256": "e4d523c7171f265b340df22a88ff78e6fba4aed46afcf3f4e5bd4ac4b94e8a16"
+            },
+            "arm64_big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/postgresql-13.1.arm64_big_sur.bottle.tar.gz",
+              "sha256": "6939bfae5047a585985ef45d71a04b88ef8ccbced5d35a3ccce4a9aa452087aa"
+            },
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/postgresql-13.1.catalina.bottle.tar.gz",
+              "sha256": "13939e578f0a48c78966c2527dc48391b19650b51f7489767b5237e3bab16793"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/postgresql-13.1.mojave.bottle.tar.gz",
+              "sha256": "1826c98f6d117bd040fbb307c1c95dfa2dee6ff8647ec8010e1b79386aa59eb0"
+            }
+          }
+        }
+      },
+      "node": {
+        "version": "15.5.1",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/node-15.5.1.big_sur.bottle.tar.gz",
+              "sha256": "15f527955cf7991efe94fa3b20903b67b947a83fb99f42ec28bb4a359bc5ca4a"
+            },
+            "arm64_big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/node-15.5.1.arm64_big_sur.bottle.tar.gz",
+              "sha256": "fa6536f4745415f44511db24369884e6c47937f18ea3824860091b48f737aecd"
+            },
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/node-15.5.1.catalina.bottle.tar.gz",
+              "sha256": "bb48a61323732fd7dce43362efa9b36d17c0ad6bf4ef31ebde8d74e20db6b4fd"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/node-15.5.1.mojave.bottle.tar.gz",
+              "sha256": "95eae1353336cae701044efba6a0872eb8264fbbe90fc316dbcdfed3813df842"
+            }
+          }
+        }
       }
     },
     "cask": {
       "1password": {
-        "version": "7.6",
+        "version": "7.7",
         "options": {
           "full_name": "1password"
         }
@@ -72,44 +130,50 @@
         }
       },
       "kitty": {
-        "version": "0.18.3",
+        "version": "0.19.3",
         "options": {
           "full_name": "kitty"
         }
       },
       "bettertouchtool": {
-        "version": "3.402-1633",
+        "version": "3.508,1646",
         "options": {
           "full_name": "bettertouchtool"
         }
       },
       "moom": {
-        "version": "3.2.17",
+        "version": "3.2.20",
         "options": {
           "full_name": "moom"
         }
       },
       "discord": {
-        "version": "0.0.258",
+        "version": "0.0.260",
         "options": {
           "full_name": "discord"
         }
       },
       "spotify": {
-        "version": "latest",
+        "version": "1.1.48.625.g1c87c7f7,1.1.48.625.g1c87c7f7-60",
         "options": {
           "full_name": "spotify"
+        }
+      },
+      "jetbrains-toolbox": {
+        "version": "1.19.7784",
+        "options": {
+          "full_name": "jetbrains-toolbox"
         }
       }
     },
     "mas": {
       "Day One": {
         "id": "1055511498",
-        "version": "5.2"
+        "version": "5.8"
       },
       "Ulysses": {
         "id": "1225570693",
-        "version": "20.2"
+        "version": "21.3"
       },
       "MONIT": null
     }
@@ -123,6 +187,14 @@
         "CLT": "12.0.0.0.1.1597368733",
         "Xcode": "12.0",
         "macOS": "10.15.6"
+      },
+      "big_sur": {
+        "HOMEBREW_VERSION": "2.7.1",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "93aebb8c0e89d4dcafc12c4ecdad8369c47c0a59",
+        "CLT": "12.3.0.0.1.1607026830",
+        "Xcode": "12.0",
+        "macOS": "11.1"
       }
     }
   }

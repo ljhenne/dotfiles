@@ -5,13 +5,23 @@ import shutil
 currdir = os.path.dirname(os.path.abspath(__file__)) 
 dotfiles = os.path.join(currdir, 'dotfiles')
 
+exclude_list = ['.config']
+
 files = []
 dirs = []
 for path in os.listdir(dotfiles):
     if os.path.isfile(os.path.join(dotfiles, path)):
         files.append(path)
     else:
-        dirs.append(path)
+        if path not in exclude_list:
+            dirs.append(path)
+
+for path in os.listdir(os.path.join(dotfiles, '.config')):
+    if os.path.isfile(os.path.join(dotfiles, path)):
+        files.append('.config/' + path)
+    else:
+        dirs.append('.config/' + path)
+
 
 homedir = os.path.expanduser("~")
 

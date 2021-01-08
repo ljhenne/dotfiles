@@ -1,0 +1,5 @@
+#!/bin/zsh
+pgpass=$(cat .pg_password_gradient)
+
+alias gd2="PGPASSWORD='$pgpass' PGSERVICE=graddev2 psql"
+alias gp2="PGPASSWORD='$pgpass' PGSERVICE=gradient-prod2 psql"

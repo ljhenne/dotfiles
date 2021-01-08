@@ -8,6 +8,7 @@ brew "postgresql"
 brew "python"
 brew "mas"
 brew "node"
+brew "pipenv"
 
 cask "1password"
 cask "battle-net"

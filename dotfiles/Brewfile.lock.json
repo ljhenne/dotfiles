@@ -2,13 +2,13 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "34ecc54ff8170e920dc9fb0c6b122d0927bea1c0"
+        "revision": "1287d4432c1a2c03cdfad91bcec57cf1417cc2a1"
       },
       "homebrew/cask": {
-        "revision": "e89f50d3f5308f6d8b70dec8b00db71c8c5797f7"
+        "revision": "feeb0d56db0485877adb5237bf1c31cf0e4c9195"
       },
       "homebrew/core": {
-        "revision": "93aebb8c0e89d4dcafc12c4ecdad8369c47c0a59"
+        "revision": "9dfb73f9d65cfbaf87336b38bf36da35f9d1a752"
       },
       "hashicorp/tap": {
         "revision": "9b064a889ea872ce463759976d13b30c0faa9473"
@@ -164,6 +164,12 @@
         "options": {
           "full_name": "jetbrains-toolbox"
         }
+      },
+      "tableplus": {
+        "version": "3.12.0,354",
+        "options": {
+          "full_name": "tableplus"
+        }
       }
     },
     "mas": {
@@ -175,7 +181,8 @@
         "id": "1225570693",
         "version": "21.3"
       },
-      "MONIT": null
+      "MONIT": null,
+      "1Password 7 - Password Manager": null
     }
   },
   "system": {
@@ -189,9 +196,9 @@
         "macOS": "10.15.6"
       },
       "big_sur": {
-        "HOMEBREW_VERSION": "2.7.1",
+        "HOMEBREW_VERSION": "2.7.2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "93aebb8c0e89d4dcafc12c4ecdad8369c47c0a59",
+        "Homebrew/homebrew-core": "9dfb73f9d65cfbaf87336b38bf36da35f9d1a752",
         "CLT": "12.3.0.0.1.1607026830",
         "Xcode": "12.0",
         "macOS": "11.1"

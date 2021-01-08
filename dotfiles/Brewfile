@@ -17,6 +17,7 @@ cask "kitty"
 cask "moom"
 cask "jetbrains-toolbox"
 cask "spotify"
+cask "tableplus"
 
 mas "Day One", id: 1055511498
 mas "MONIT", id: 1014850245

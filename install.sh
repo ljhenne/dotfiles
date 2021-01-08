@@ -36,5 +36,5 @@ pip install -r requirements.txt
 #
 #
 ## Copy dotfiles and configs to home directory
-python bootstrap.py
+python3 bootstrap.py
 

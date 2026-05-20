@@ -4,21 +4,12 @@ My dotfiles repo.
 
 ## Prerequisites
 
-Some things shouldn't be automated.
+Cloning this repo requires authorization to clone which requires GitHub authentication to be set up.
 
-### Generate a new SSH key
+Create a new SSH key and add it to your GitHub account:
 
-Copied from [Github's docs](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on the subject.
-
-```
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-```
-
-Add the newly generated public key to GitHub and GitLab.
-
-```
-pbcopy < ~/.ssh/id_rsa.pub
-```
+* [Generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+* [Adding a new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account)
 
 ## Sign into the App Store
 

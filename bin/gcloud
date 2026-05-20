@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+# Download install script for gcloud CLI on Apple Silicon
+FILE_NAME=google-cloud-cli-darwin-arm.tar.gz
+curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$FILE_NAME
+
+# Extact
+tar -xf $FILE_NAME
+
+# Run install script
+./google-cloud-sdk/install.sh
+
+rm $FILENAME
+rm -rf ./google-cloud-sdk

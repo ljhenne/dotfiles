@@ -1,13 +1,7 @@
+#
 # MANUAL INSTALLATIONS
 #
-#
-## Homebrew installation
-which -s brew
-if [[ $? != 0 ]] ; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-else
-    brew update
-fi
+scripts/homebrew
 
 ver=$(python -c "import sys; print(sys.version_info.major)")
 if [ $ver -eq 2 ]; then

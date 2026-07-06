@@ -1,0 +1,2 @@
+command = /usr/local/bin/tmux new-session -A -s ghostty
+theme = catppuccin-mocha.conf

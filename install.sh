@@ -23,13 +23,22 @@ for file in .zshrc .pg_service.conf .tmux.conf; do
     fi
 done
 
-if [ -d "$HOME/.config/kitty" ] && [ ! -L "$HOME/.config/kitty" ]; then
-    echo "Backing up existing ~/.config/kitty -> $BACKUP_DIR/kitty"
+for dir in .config/kitty .config/ghostty .config/nvim; do
+    if [ -d "$HOME/$dir" ] && [ ! -L "$HOME/$dir" ]; then
+        echo "Backing up existing ~/$dir -> $BACKUP_DIR/$(basename "$dir")"
+        mkdir -p "$BACKUP_DIR"
+        mv "$HOME/$dir" "$BACKUP_DIR/"
+    fi
+done
+
+GHOSTTY_APP_SUPPORT="$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+if [ -f "$GHOSTTY_APP_SUPPORT" ] && [ ! -L "$GHOSTTY_APP_SUPPORT" ]; then
+    echo "Backing up existing Ghostty App Support config -> $BACKUP_DIR/"
     mkdir -p "$BACKUP_DIR"
-    mv "$HOME/.config/kitty" "$BACKUP_DIR/"
+    mv "$GHOSTTY_APP_SUPPORT" "$BACKUP_DIR/"
 fi
 
 echo "=== 3. Stowing dotfile packages ==="
-stow zsh kitty postgres tmux
+stow zsh kitty postgres tmux ghostty nvim
 
 echo "=== Dotfiles installation complete! ==="

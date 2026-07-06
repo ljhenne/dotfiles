@@ -1,42 +1,83 @@
 # Dotfiles
 
-My dotfiles repo.
+Personal dotfiles and configuration repository managed with **[GNU Stow](https://www.gnu.org/software/stow/)**.
 
-## Setup GitHub SSH key
+## Overview
 
-Cloning this repo requires authorization to clone which requires GitHub authentication to be set up.
+This repository uses **GNU Stow** to manage configuration files and symlinks cleanly in `$HOME`.
 
-Create a new SSH key and add it to your GitHub account:
+- **Zero Copying / Zero Friction:** Files in your home directory (e.g. `~/.zshrc`, `~/.config/kitty/kitty.conf`) are symbolic links pointing directly into this repository. Edits made in your editor or terminal automatically save directly to this repository!
+- **Modular Packages:** Configurations are organized into app-specific packages (`zsh/`, `kitty/`, `postgres/`). You can stow or unstow packages independently.
+- **Developer Friendly:** Simple, standardized setup for other developers.
 
-* [Generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
-* [Adding a new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account)
+---
 
-## oh-my-zsh
+## Repository Structure
 
-Run this to get a sane terminal with nice colors.
-
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-## pyenv
-
-Install pyenv so we can get the right version of Python.
-
-```
-brew install pyenv
+```text
+.
+├── .stowrc               # Default Stow config (targets home directory)
+├── Brewfile              # Homebrew package dependencies (stow, pyenv, etc.)
+├── install.sh            # Automated setup script
+├── zsh/                  # Zsh shell package (.zshrc)
+├── kitty/                # Kitty terminal package (~/.config/kitty/...)
+└── postgres/             # PostgreSQL config package (~/.pg_service.conf)
 ```
 
-## Sign into the App Store
+---
 
-You'll need to do this if you want to install the App Store apps.
+## Quick Start / Installation
 
-If you don't need them, you can comment out or delete the lines starting with `mas` from `dotfiles/Brewfile`.
+1. **Clone the repository:**
+   ```bash
+   git clone git@github.com:ljhenne/dotfiles.git ~/Git/github.com/ljhenne/dotfiles
+   cd ~/Git/github.com/ljhenne/dotfiles
+   ```
 
-## Installation
+2. **Run the installation script:**
+   ```bash
+   bash ./install.sh
+   ```
+   *Note: This script will install Homebrew dependencies, safely back up any existing non-symlink dotfiles to `~/.dotfiles_backup/`, and run `stow`.*
 
-Just `git clone` and run this from within the repository.
+---
 
-```bash
-bash ./install.sh
-```
+## GNU Stow Usage
+
+If you want to stow or unstow individual packages manually:
+
+- **Link (Stow) a package:**
+  ```bash
+  stow zsh
+  stow kitty
+  ```
+
+- **Unlink (Unstow) a package:**
+  ```bash
+  stow -D zsh
+  ```
+
+- **Re-link (Restow) a package:** (use after adding new files inside a package folder)
+  ```bash
+  stow -R zsh
+  ```
+
+- **Preview changes (Dry run):**
+  ```bash
+  stow -n -v zsh
+  ```
+
+---
+
+## Workflow: Updating Configuration Files
+
+Since config files in `~` are symlinked to this repository, updating your dotfiles is seamless:
+
+1. Edit your config as usual (e.g. edit `~/.zshrc` or `~/.config/kitty/kitty.conf`).
+2. Open your terminal in this repository:
+   ```bash
+   cd ~/Git/github.com/ljhenne/dotfiles
+   git status
+   git commit -am "Update shell aliases"
+   git push
+   ```

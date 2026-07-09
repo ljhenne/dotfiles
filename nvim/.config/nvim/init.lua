@@ -71,19 +71,20 @@ require("lazy").setup({
     -- Plugin 1: Treesitter (Modern API)
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "master",
         build = ":TSUpdate",
         config = function()
-            -- The plugin now only handles downloading the parsers.
-            -- This is a no-op if they are already installed.
-            require("nvim-treesitter").install({
-                "python",
-                "go",
-                "typescript",
-                "lua",
-                "vim",
-                "vimdoc",
-                "markdown",
-                "markdown_inline"
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = {
+                    "python",
+                    "go",
+                    "typescript",
+                    "lua",
+                    "vim",
+                    "vimdoc",
+                    "markdown",
+                    "markdown_inline"
+                },
             })
         end,
     },

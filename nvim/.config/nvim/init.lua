@@ -209,19 +209,7 @@ require("lazy").setup({
             -- 1. Initialize Mason
             require("mason").setup()
 
-            -- 2. Tell Mason to ensure these servers are always installed
-            -- (Mason v2+ automatically enables them for you natively)
-            require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "cssls",
-                    "html",
-                    "emmet_ls",
-                    "lua_ls",
-                    "pyright",
-                    "sqlls",
-                    "ts_ls"
-                },
-            })
+            -- (Mason configuration is handled below after all plugins are loaded)
 
             -- 3. Set up keyboard shortcuts for LSP features
             -- Press 'K' to see documentation for the word under your cursor
@@ -316,13 +304,33 @@ require("lazy").setup({
 })
 
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "pyright", "html", "cssls", "sqlls" },
+    ensure_installed = {
+        "cssls",
+        "html",
+        "emmet_ls",
+        "lua_ls",
+        "pyright",
+        "sqlls",
+        "ts_ls"
+    },
     handlers = {
         -- This default handler attaches to all installed servers
         function(server_name)
             require("lspconfig")[server_name].setup({
                 -- This line connects the LSP to nvim-cmp
                 capabilities = require('cmp_nvim_lsp').default_capabilities()
+            })
+        end,
+        ["lua_ls"] = function()
+            require("lspconfig").lua_ls.setup({
+                capabilities = require('cmp_nvim_lsp').default_capabilities(),
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" },
+                        },
+                    },
+                },
             })
         end,
     }

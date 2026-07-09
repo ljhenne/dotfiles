@@ -1,2 +1,5 @@
 command = /usr/local/bin/tmux new-session -A -s ghostty
 theme = catppuccin-mocha.conf
+clipboard-write = allow
+clipboard-read = allow
+copy-on-select = clipboard

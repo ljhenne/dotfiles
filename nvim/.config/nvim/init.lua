@@ -81,7 +81,9 @@ require("lazy").setup({
                 "typescript",
                 "lua",
                 "vim",
-                "vimdoc"
+                "vimdoc",
+                "markdown",
+                "markdown_inline"
             })
         end,
     },

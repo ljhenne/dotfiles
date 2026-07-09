@@ -351,3 +351,28 @@ vim.keymap.set('n', '<A-l>', ':vertical resize +2<CR>', { desc = 'Increase windo
 -- Split behavior
 vim.opt.splitright = true -- Vertically split windows open to the right
 vim.opt.splitbelow = true -- Horizontally split windows open below
+
+-- Configure NeoVim to use OSC 52 for system clipboard integration
+local function paste()
+  return {
+    vim.fn.split(vim.fn.getreg(""), "\n"),
+    vim.fn.getregtype(""),
+  }
+end
+
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    -- Note: Pasting FROM system clipboard over SSH via OSC 52 is heavily restricted 
+    -- by most terminals for security reasons, so this fallback reads from NeoVim's register.
+    ["+"] = paste,
+    ["*"] = paste,
+  },
+}
+
+-- Sync NeoVim's default yanks directly to the system clipboard
+vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }

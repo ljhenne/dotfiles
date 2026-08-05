@@ -193,9 +193,9 @@ require("lazy").setup({
             -- Press Space + e to toggle the file explorer sidebar
             vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
 
-	    -- Apply the visual styling rules down here (after setup)
+            -- Apply the visual styling rules down here (after setup)
             vim.api.nvim_set_hl(0, "NvimTreeGitIgnored", { link = "Comment" })
-	    vim.api.nvim_set_hl(0, "NvimTreeGitIgnoredIcon", { link = "Comment" })
+            vim.api.nvim_set_hl(0, "NvimTreeGitIgnoredIcon", { link = "Comment" })
         end,
     },
 
@@ -301,6 +301,32 @@ require("lazy").setup({
         end,
     },
 
+    {
+        "folke/zen-mode.nvim",
+        cmd = "ZenMode", -- Only load the plugin when we execute :ZenMode
+        opts = {
+            window = {
+                backdrop = 0.95,            -- Shade the backdrop (1 turns off shading)
+                width = 85,                 -- Width of the centered Zen window (80-90 is ideal for prose)
+                height = 1,                 -- Take up full window height (percentage <= 1)
+                options = {
+                    signcolumn = "no",      -- Hide signcolumn (git signs, etc)
+                    number = false,         -- Hide line numbers
+                    relativenumber = false, -- Hide relative numbers
+                    cursorline = false,     -- Hide the highlight under cursor line
+                },
+            },
+            plugins = {
+                -- Disable active options that might clutter the viewport
+                gitsigns = { enabled = false },
+                tmux = { enabled = false }, -- Hide tmux status bar if active
+            },
+        },
+        keys = {
+            -- Keymap: Press <leader>z to toggle ZenMode on/off
+            { "<leader>z", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
+        },
+    },
 })
 
 require("mason-lspconfig").setup({
@@ -363,24 +389,24 @@ vim.opt.splitbelow = true -- Horizontally split windows open below
 
 -- Configure NeoVim to use OSC 52 for system clipboard integration
 local function paste()
-  return {
-    vim.fn.split(vim.fn.getreg(""), "\n"),
-    vim.fn.getregtype(""),
-  }
+    return {
+        vim.fn.split(vim.fn.getreg(""), "\n"),
+        vim.fn.getregtype(""),
+    }
 end
 
 vim.g.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  paste = {
-    -- Note: Pasting FROM system clipboard over SSH via OSC 52 is heavily restricted 
-    -- by most terminals for security reasons, so this fallback reads from NeoVim's register.
-    ["+"] = paste,
-    ["*"] = paste,
-  },
+    name = "OSC 52",
+    copy = {
+        ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+        -- Note: Pasting FROM system clipboard over SSH via OSC 52 is heavily restricted
+        -- by most terminals for security reasons, so this fallback reads from NeoVim's register.
+        ["+"] = paste,
+        ["*"] = paste,
+    },
 }
 
 -- Sync NeoVim's default yanks directly to the system clipboard

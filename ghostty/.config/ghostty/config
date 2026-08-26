@@ -1,2 +1,10 @@
-command = /usr/local/bin/tmux new-session -A -s ghostty
+# --- Core settings ---
 theme = catppuccin-mocha.conf
+
+# --- Initial Startup Command ---
+initial-command = /usr/local/bin/tmux new-session -A -s ghostty-1
+command = ~/.local/bin/ghostty-tmux
+
+# --- OS-Specific Overrides Loader ---
+config-file = ?macos
+config-file = ?linux

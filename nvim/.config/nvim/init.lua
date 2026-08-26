@@ -71,20 +71,19 @@ require("lazy").setup({
     -- Plugin 1: Treesitter (Modern API)
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = "master",
+        branch = "main",
         build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter.configs").setup({
-                ensure_installed = {
-                    "python",
-                    "go",
-                    "typescript",
-                    "lua",
-                    "vim",
-                    "vimdoc",
-                    "markdown",
-                    "markdown_inline"
-                },
+            require("nvim-treesitter").setup()
+            require("nvim-treesitter").install({
+                "python",
+                "go",
+                "typescript",
+                "lua",
+                "vim",
+                "vimdoc",
+                "markdown",
+                "markdown_inline"
             })
         end,
     },
@@ -215,8 +214,59 @@ require("lazy").setup({
             -- Press 'K' to see documentation for the word under your cursor
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
 
-            -- Press 'gd' to jump to the definition of a function or variable
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to Definition' })
+            -- Press 'gd' to jump to definition, or open references dialog if already on definition
+            vim.keymap.set('n', 'gd', function()
+                local current_bufnr = vim.api.nvim_get_current_buf()
+                local current_win = vim.api.nvim_get_current_win()
+                local current_cursor = vim.api.nvim_win_get_cursor(current_win)
+                local current_file = vim.api.nvim_buf_get_name(current_bufnr)
+
+                vim.lsp.buf.definition({
+                    on_list = function(options)
+                        local items = options.items
+                        if not items or #items == 0 then
+                            return
+                        end
+
+                        local at_definition = false
+                        for _, item in ipairs(items) do
+                            local item_file = item.filename or (item.bufnr and vim.api.nvim_buf_get_name(item.bufnr))
+                            local same_file = item_file and (vim.fs.normalize(item_file) == vim.fs.normalize(current_file))
+                            if same_file then
+                                local start_lnum = item.lnum
+                                local end_lnum = item.end_lnum or item.lnum
+                                if current_cursor[1] >= start_lnum and current_cursor[1] <= end_lnum then
+                                    at_definition = true
+                                    break
+                                end
+                            end
+                        end
+
+                        if at_definition then
+                            require('telescope.builtin').lsp_references()
+                        else
+                            if #items == 1 then
+                                local item = items[1]
+                                local b = item.bufnr or vim.fn.bufadd(item.filename)
+
+                                -- Save position in jumplist and tagstack
+                                vim.cmd("normal! m'")
+                                local from = vim.fn.getpos('.')
+                                from[1] = current_bufnr
+                                local tagstack = { { tagname = vim.fn.expand('<cword>'), from = from } }
+                                vim.fn.settagstack(vim.fn.win_getid(current_win), { items = tagstack }, 't')
+
+                                vim.bo[b].buflisted = true
+                                vim.api.nvim_win_set_buf(current_win, b)
+                                vim.api.nvim_win_set_cursor(current_win, { item.lnum, item.col - 1 })
+                                vim.cmd('normal! zv')
+                            else
+                                require('telescope.builtin').lsp_definitions()
+                            end
+                        end
+                    end,
+                })
+            end, { desc = 'Go to Definition / References' })
 
             -- Press Space + c + a to see available "Code Actions" (like quick fixes)
             vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })

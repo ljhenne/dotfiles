@@ -184,7 +184,11 @@ require("lazy").setup({
                     },
                 },
                 view = {
-                    width = 30,
+                    width = {
+                        min = 30,
+                        max = 60,
+                        padding = 1,
+                    },
                     side = "left",
                 },
             })

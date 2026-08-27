@@ -123,3 +123,11 @@ if [ -f '/usr/local/lib/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/loc
 
 # Automatically load virtualenvwrapper on demand
 pyenv virtualenvwrapper_lazy
+
+# Add Go binaries to PATH if Go is installed
+if command -v go >/dev/null 2>&1; then
+    export PATH="$PATH:$(go env GOPATH)/bin"
+fi
+
+# Load local machine-specific configuration if present (untracked in dotfiles)
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

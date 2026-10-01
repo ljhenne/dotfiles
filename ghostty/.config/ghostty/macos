@@ -1,3 +1,6 @@
 # macOS Specific Keybinds
 keybind = cmd+n=new_window
 
+
+# Quit when the last window closes, so reopening always loads the current config
+quit-after-last-window-closed = true

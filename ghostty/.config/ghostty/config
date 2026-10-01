@@ -2,7 +2,7 @@
 theme = catppuccin-mocha.conf
 
 # --- Initial Startup Command ---
-initial-command = /usr/local/bin/tmux new-session -A -s ghostty-1
+initial-command = ~/.local/bin/ghostty-tmux ghostty-1
 command = ~/.local/bin/ghostty-tmux
 
 # --- OS-Specific Overrides Loader ---

@@ -1,0 +1,17 @@
+#!/bin/sh
+# Launch tmux from Ghostty. Ghostty starts commands with a minimal PATH,
+# so look for tmux in the usual install locations.
+#   ghostty-tmux <name>  attach to session <name>, creating it if needed
+#   ghostty-tmux         start a new session
+for t in /opt/homebrew/bin/tmux /usr/local/bin/tmux /home/linuxbrew/.linuxbrew/bin/tmux /usr/bin/tmux; do
+    [ -x "$t" ] && TMUX_BIN="$t" && break
+done
+
+# No tmux installed: fall back to a plain login shell
+[ -z "$TMUX_BIN" ] && exec "${SHELL:-/bin/zsh}" -l
+
+if [ -n "$1" ]; then
+    exec "$TMUX_BIN" new-session -A -s "$1"
+else
+    exec "$TMUX_BIN" new-session
+fi

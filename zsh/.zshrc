@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -113,7 +113,7 @@ eval "$(pyenv init - zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
 # Added by Antigravity
-export PATH="/Users/ljhenne/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/lib/google-cloud-sdk/path.zsh.inc'; fi
@@ -121,8 +121,11 @@ if [ -f '/usr/local/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/lib
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/lib/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/lib/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Automatically load virtualenvwrapper on demand
-pyenv virtualenvwrapper_lazy
+# Automatically load virtualenvwrapper on demand (Homebrew install, using its bundled python)
+if [[ -f "$HOMEBREW_PREFIX/bin/virtualenvwrapper_lazy.sh" ]]; then
+    export VIRTUALENVWRAPPER_PYTHON="$HOMEBREW_PREFIX/opt/virtualenvwrapper/libexec/bin/python"
+    source "$HOMEBREW_PREFIX/bin/virtualenvwrapper_lazy.sh"
+fi
 
 # Add Go binaries to PATH if Go is installed
 if command -v go >/dev/null 2>&1; then

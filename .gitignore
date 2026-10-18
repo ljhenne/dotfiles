@@ -4,3 +4,6 @@
 .zshrc.local
 
 !*/.local/
+
+# Obsidian per-machine UI state
+obsidian/**/.obsidian/workspace*.json

@@ -39,6 +39,8 @@ if [ -f "$GHOSTTY_APP_SUPPORT" ] && [ ! -L "$GHOSTTY_APP_SUPPORT" ]; then
 fi
 
 echo "=== 3. Stowing dotfile packages ==="
-stow zsh kitty postgres tmux ghostty nvim
+# Create ~/Obsidian so stow links only "Obsidian Base" into it, not the whole directory
+mkdir -p "$HOME/Obsidian"
+stow zsh kitty postgres tmux ghostty nvim obsidian
 
 echo "=== Dotfiles installation complete! ==="

@@ -21,8 +21,26 @@ This repository uses **GNU Stow** to manage configuration files and symlinks cle
 ├── install.sh            # Automated setup script
 ├── zsh/                  # Zsh shell package (.zshrc)
 ├── kitty/                # Kitty terminal package (~/.config/kitty/...)
-└── postgres/             # PostgreSQL config package (~/.pg_service.conf)
+├── postgres/             # PostgreSQL config package (~/.pg_service.conf)
+└── obsidian/             # Shared Obsidian base vault (~/Obsidian/Obsidian Base)
 ```
+
+---
+
+## Obsidian
+
+The `obsidian` package stows the **Obsidian Base** vault to `~/Obsidian/Obsidian Base`. It holds the settings shared by every vault: `app.json`, `appearance.json`, `hotkeys.json`, `themes/` and `snippets/`.
+
+To share them with a vault in `~/Obsidian`, symlink each one into that vault's `.obsidian/` (Obsidian must be closed):
+
+```bash
+cd ~/Obsidian/<Vault>/.obsidian
+for f in app.json appearance.json hotkeys.json themes snippets; do
+  rm -rf "$f"; ln -s "../../Obsidian Base/.obsidian/$f" "$f"
+done
+```
+
+Plugins, workspace and templates stay local to each vault. Plugin data can hold secrets (e.g. Local REST API keys), so never move it into this repo.
 
 ---
 

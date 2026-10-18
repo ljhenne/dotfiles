@@ -1,0 +1,17 @@
+{
+  "vimMode": true,
+  "livePreview": true,
+  "readableLineLength": false,
+  "propertiesInDocument": "hidden",
+  "showLineNumber": true,
+  "useTab": false,
+  "autoConvertHtml": false,
+  "openBehavior": "daily",
+  "promptDelete": false,
+  "showInlineTitle": true,
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "source",
+  "strictLineBreaks": false,
+  "foldHeading": true,
+  "rightToLeft": false
+}

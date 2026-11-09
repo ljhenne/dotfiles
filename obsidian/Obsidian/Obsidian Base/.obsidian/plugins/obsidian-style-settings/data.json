@@ -42,7 +42,7 @@
   "anuppuccin-theme-settings@@h1-line-height": 1.5,
   "catppuccin-icon-styles@@ctp-icon-hide": false,
   "catppuccin-interface-styles@@ctp-bold-folder-title": true,
-  "anuppuccin-theme-settings-extended@@anp-theme-ext-dark": false,
+  "anuppuccin-theme-settings-extended@@anp-theme-ext-dark": true,
   "anuppuccin-theme-settings-extended@@anp-theme-ext-light": false,
   "anuppuccin-theme-settings-extended@@anp-theme-ext-amoled": false,
   "anuppuccin-theme-settings-extended@@catppuccin-theme-dark-extended": "ctp-nord-dark",
